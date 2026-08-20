@@ -1,0 +1,131 @@
+:root {
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  --color-bg: #05060f;
+  --color-bg-alt: #0a0b1a;
+  --color-surface: rgba(255, 255, 255, 0.045);
+  --color-surface-solid: #12142b;
+  --color-border: rgba(148, 163, 184, 0.16);
+  --color-border-strong: rgba(167, 139, 250, 0.4);
+  --color-text: #e9ebfa;
+  --color-muted: #97a0c3;
+
+  --accent-purple: #8b5cf6;
+  --accent-purple-strong: #863bff;
+  --accent-cyan: #47bfff;
+  --accent-pink: #f472b6;
+  --gradient-accent: linear-gradient(135deg, var(--accent-purple-strong), var(--accent-cyan));
+
+  --glow-purple: 0 0 24px rgba(139, 92, 246, 0.35);
+  --glow-cyan: 0 0 24px rgba(71, 191, 255, 0.3);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  font-family: var(--font-body);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* Layered nebula backdrop, sits above the starfield canvas but behind content */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(720px 480px at 12% -5%, rgba(139, 92, 246, 0.28), transparent 60%),
+    radial-gradient(680px 460px at 108% 12%, rgba(71, 191, 255, 0.2), transparent 60%),
+    radial-gradient(620px 520px at 50% 118%, rgba(244, 114, 182, 0.14), transparent 60%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-purple);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #fff;
+}
+
+/* Reusable surfaces */
+.glass-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
