@@ -1,6 +1,6 @@
 :root {
-  --font-heading: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 
   --color-bg: #05060f;
   --color-bg-alt: #0a0b1a;
@@ -48,14 +48,41 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -5%;
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(720px 480px at 12% -5%, rgba(139, 92, 246, 0.28), transparent 60%),
-    radial-gradient(680px 460px at 108% 12%, rgba(71, 191, 255, 0.2), transparent 60%),
-    radial-gradient(620px 520px at 50% 118%, rgba(244, 114, 182, 0.14), transparent 60%),
+    radial-gradient(820px 560px at 10% -8%, rgba(139, 92, 246, 0.38), transparent 62%),
+    radial-gradient(760px 520px at 108% 8%, rgba(71, 191, 255, 0.28), transparent 60%),
+    radial-gradient(700px 600px at 46% 112%, rgba(244, 114, 182, 0.2), transparent 62%),
+    radial-gradient(600px 460px at 82% 78%, rgba(99, 102, 241, 0.16), transparent 58%),
+    radial-gradient(520px 420px at 4% 62%, rgba(56, 189, 248, 0.14), transparent 55%),
     linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  animation: nebula-drift 28s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-1.5%, 1%, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(1.5%, -1%, 0) scale(1.02);
+  }
+}
+
+/* Fine film-grain texture — keeps the flat gradients from looking too "template" */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 h1,

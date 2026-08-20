@@ -1,90 +1,37 @@
-import { useEffect, useState } from "react";
-import client from "../api/client";
-import { IconMail } from "../components/icons";
-import { socialIconFor } from "../utils/social";
-import { Loader, ErrorState } from "../components/StateMessage";
+import { ExperienceTimeline } from "../components/ExperienceList";
+import BadgeGrid from "../components/BadgeGrid";
+import BioText from "../components/BioText";
+import Reveal from "../components/Reveal";
 
-export default function About() {
-  const [profile, setProfile] = useState(null);
-  const [status, setStatus] = useState("loading");
-
-  useEffect(() => {
-    client
-      .get("/profile")
-      .then((res) => {
-        setProfile(res.data);
-        setStatus("ready");
-      })
-      .catch(() => setStatus("error"));
-  }, []);
-
-  if (status === "loading") return <Loader label="Memuat profil..." />;
-  if (status === "error" || !profile)
-    return (
-      <ErrorState>
-        Gagal memuat profil. Pastikan server backend Laravel berjalan di http://localhost:8000.
-      </ErrorState>
-    );
+export default function About({ profile, experiences }) {
+  if (!profile) return null;
 
   return (
-    <section className="about glass-panel">
-      <div className="about-photo">
-        {profile.photo_url ? (
-          <img src={profile.photo_url} alt={profile.name} />
-        ) : (
-          <div className="about-photo-placeholder">
-            {profile.name
-              ?.split(" ")
-              .slice(0, 2)
-              .map((w) => w[0])
-              .join("")
-              .toUpperCase()}
-          </div>
-        )}
-      </div>
-      <div className="about-content">
-        <p className="eyebrow">Halo, perkenalkan</p>
-        <h1 className="gradient-text">{profile.name}</h1>
-        <h2>{profile.title}</h2>
-        <p className="bio">{profile.bio}</p>
+    <section id="about" className="page-section about-page">
+      <h1 className="section-title">
+        Know Who <span className="gradient-text">I&apos;m</span>
+      </h1>
 
-        {Array.isArray(profile.skills) && profile.skills.length > 0 && (
-          <div className="skills">
-            <h3>Skills</h3>
-            <ul>
-              {profile.skills.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
-          </div>
+      <Reveal className="about-intro glass-panel">
+        <BioText text={profile.bio} />
+        {profile.location && (
+          <p className="about-location">
+            📍 Based in <strong>{profile.location}</strong>
+          </p>
         )}
+      </Reveal>
 
-        <div className="social-links">
-          {profile.email && (
-            <a href={`mailto:${profile.email}`} className="social-link" aria-label="Email">
-              <IconMail />
-              <span>Email</span>
-            </a>
-          )}
-          {profile.social_links &&
-            Object.entries(profile.social_links).map(([label, url]) => {
-              const Icon = socialIconFor(label);
-              return (
-                <a
-                  key={label}
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-link"
-                  aria-label={label}
-                >
-                  <Icon />
-                  <span>{label.charAt(0).toUpperCase() + label.slice(1)}</span>
-                </a>
-              );
-            })}
-        </div>
-      </div>
+      {experiences?.length > 0 && (
+        <Reveal className="about-block" delay={80}>
+          <h2 className="section-subtitle">Experience</h2>
+          <ExperienceTimeline experiences={experiences} />
+        </Reveal>
+      )}
+
+      <Reveal className="about-badges" delay={120}>
+        <BadgeGrid title={<>Tech <span className="gradient-text">I use</span></>} items={profile.skills} />
+        <BadgeGrid title={<>Tools <span className="gradient-text">I use</span></>} items={profile.tools} />
+      </Reveal>
     </section>
   );
 }

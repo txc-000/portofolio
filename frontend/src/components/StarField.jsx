@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
-const STAR_DENSITY = 9000; // px^2 per star
-const SHOOTING_STAR_INTERVAL = [3500, 9000]; // ms range
+const STAR_DENSITY = 5200; // px^2 per star
+const SHOOTING_STAR_INTERVAL = [3200, 8000]; // ms range
 
 export default function StarField() {
   const canvasRef = useRef(null);
@@ -21,15 +21,19 @@ export default function StarField() {
 
     function makeStars() {
       const count = Math.floor((width * height) / STAR_DENSITY);
-      stars = Array.from({ length: count }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.1 + 0.25,
-        baseAlpha: Math.random() * 0.6 + 0.3,
-        twinkleSpeed: Math.random() * 0.015 + 0.004,
-        twinklePhase: Math.random() * Math.PI * 2,
-        hue: Math.random() < 0.15 ? "cyan" : Math.random() < 0.1 ? "purple" : "white",
-      }));
+      stars = Array.from({ length: count }, () => {
+        const big = Math.random() < 0.045;
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: big ? Math.random() * 1.1 + 1.5 : Math.random() * 1.1 + 0.25,
+          baseAlpha: Math.random() * 0.55 + 0.4,
+          twinkleSpeed: Math.random() * 0.015 + 0.004,
+          twinklePhase: Math.random() * Math.PI * 2,
+          hue: Math.random() < 0.15 ? "cyan" : Math.random() < 0.1 ? "purple" : "white",
+          big,
+        };
+      });
     }
 
     function resize() {
@@ -73,9 +77,16 @@ export default function StarField() {
         const alpha = Math.max(0, Math.min(1, star.baseAlpha + twinkle));
         ctx.beginPath();
         ctx.fillStyle = colorFor(star.hue, alpha);
+        if (star.big) {
+          ctx.shadowBlur = 7;
+          ctx.shadowColor = colorFor(star.hue, 0.9);
+        } else {
+          ctx.shadowBlur = 0;
+        }
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fill();
       }
+      ctx.shadowBlur = 0;
 
       if (!prefersReducedMotion) {
         shootingStars = shootingStars.filter((s) => s.life > 0);
