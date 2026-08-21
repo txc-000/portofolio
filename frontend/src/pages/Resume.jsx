@@ -1,7 +1,6 @@
 import { ResumeExperienceGroups } from "../components/ExperienceList";
 import BioText from "../components/BioText";
 import Reveal from "../components/Reveal";
-import { resolveUrl } from "../api/client";
 
 export default function Resume({ profile, experiences }) {
   if (!profile) return null;
@@ -17,7 +16,7 @@ export default function Resume({ profile, experiences }) {
     <section id="resume" className="page-section">
       <Reveal className="resume-toolbar">
         {profile.cv_url ? (
-          <a href={resolveUrl(profile.cv_url)} target="_blank" rel="noreferrer" className="btn btn-primary">
+          <a href={profile.cv_url} target="_blank" rel="noreferrer" className="btn btn-primary">
             ⬇ Download CV
           </a>
         ) : (

@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Project from "./pages/Project";
 import Resume from "./pages/Resume";
-import { Loader, ErrorState } from "./components/StateMessage";
 import { usePortfolioData } from "./hooks/usePortfolioData";
 import "./App.css";
 
@@ -17,27 +16,17 @@ const SECTIONS = [
 ];
 
 export default function App() {
-  const { profile, experiences, portfolios, status } = usePortfolioData();
+  const { profile, experiences, portfolios } = usePortfolioData();
 
   return (
     <div className="app-shell">
       <StarField />
-      <Navbar sections={SECTIONS} brand={profile?.name} ready={status === "ready"} />
+      <Navbar sections={SECTIONS} brand={profile?.name} ready />
       <main className="app-main">
-        {status === "loading" && <Loader label="Memuat halaman..." />}
-        {status === "error" && (
-          <ErrorState>
-            Gagal memuat data. Pastikan server backend Laravel berjalan di http://localhost:8000.
-          </ErrorState>
-        )}
-        {status === "ready" && (
-          <>
-            <Home profile={profile} portfolios={portfolios} experiences={experiences} />
-            <About profile={profile} experiences={experiences} />
-            <Project portfolios={portfolios} />
-            <Resume profile={profile} experiences={experiences} />
-          </>
-        )}
+        <Home profile={profile} portfolios={portfolios} experiences={experiences} />
+        <About profile={profile} experiences={experiences} />
+        <Project portfolios={portfolios} />
+        <Resume profile={profile} experiences={experiences} />
       </main>
       <Footer />
     </div>

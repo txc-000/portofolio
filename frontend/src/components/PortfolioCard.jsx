@@ -1,5 +1,4 @@
 import { IconExternal, IconCode } from "./icons";
-import { resolveUrl } from "../api/client";
 import Reveal from "./Reveal";
 
 export default function PortfolioCard({ portfolio }) {
@@ -7,7 +6,7 @@ export default function PortfolioCard({ portfolio }) {
     <Reveal as="article" className="portfolio-card glass-panel">
       <div className="portfolio-card-image">
         {portfolio.image_url ? (
-          <img src={resolveUrl(portfolio.image_url)} alt={portfolio.title} />
+          <img src={portfolio.image_url} alt={portfolio.title} />
         ) : (
           <div className="portfolio-card-placeholder">No Image</div>
         )}

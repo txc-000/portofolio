@@ -4,7 +4,6 @@ import { socialIconFor } from "../utils/social";
 import BioText from "../components/BioText";
 import Reveal from "../components/Reveal";
 import CountUp from "../components/CountUp";
-import { resolveUrl } from "../api/client";
 
 export default function Home({ profile, portfolios, experiences }) {
   const typedTitle = useTypewriter(profile?.title ?? "");
@@ -91,7 +90,7 @@ export default function Home({ profile, portfolios, experiences }) {
         <div className="hero-photo-frame">
           {profile.photo_url ? (
             <>
-              <img src={resolveUrl(profile.photo_url)} alt={profile.name} />
+              <img src={profile.photo_url} alt={profile.name} />
               <span className="hero-photo-tint" aria-hidden="true" />
             </>
           ) : (
