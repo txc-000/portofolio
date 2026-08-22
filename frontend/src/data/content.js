@@ -49,7 +49,7 @@ export const experiences = [
     organization: "LPK Universal Japan Course",
     type: "internship",
     period: "Mar 2026 – Jul 2026",
-    description: "Built a centralized ERP application to connect data across divisions (Recruitment, Finance, Documents) | Developed an interactive frontend with React.js and Vite, including a dynamic Gantt chart timeline and automatic PDF generation | Designed the backend with Supabase/PostgreSQL and Row-Level Security.",
+    description: "Built an integrated management system automating the full trainee lifecycle — from registration to post-departure alumni monitoring — for a Japan-bound worker training institute | Developed a multi-role dashboard system (9 roles, including a B2B partner portal) with role-based smart login and a Director dashboard for real-time KPI and staff-productivity monitoring | Built an 11-stage trainee pipeline/timeline module with layered validation, plus document generators for Japan-specific paperwork (Rirekisho, Shoushiki forms, certificates) auto-generated from the database | Implemented secure serverless admin endpoints (user creation, password resets) via Vercel Functions using a server-side service-role key, keeping privileged operations off the client | Designed the backend with Supabase (Auth, PostgreSQL, Storage) using UUID primary keys to prevent IDOR vulnerabilities.",
     link: null,
   },
   {
@@ -85,13 +85,13 @@ export const portfolios = [
   },
   {
     id: 2,
-    title: "LPK Universal Japan Course ERP System",
+    title: "LPK Universal Japan Course — Integrated Management System",
     category: "website",
-    description: "Centralized ERP application connecting data across divisions, complete with a Gantt chart timeline and automatic PDF generation.",
+    description: "An integrated management information system built for LPK Universal Japan Course (UJC), a training institute in Semarang that recruits, trains, and dispatches Indonesian workers and trainees to Japan under the Kumiai/Kaisha scheme (Technical Intern Training and SSW). The application automates the entire trainee lifecycle, from initial registration through post-departure alumni monitoring. It includes a public landing page with a \"Candidate Showcase\" — an e-commerce-style public catalog of trainee profiles — alongside a multi-role dashboard system with role-based smart login for Super Admin, Director, Supervisor, Recruitment, Documents, Education, Administration, and Partner institutes (a dedicated B2B portal). A Director dashboard provides real-time KPI monitoring, staff productivity tracking, and Kaisha job order tracking, while a Timeline/Pipeline module tracks every trainee through 11 mandatory stages — from registration and interviews to document processing and departure — with layered validation at each step. Additional modules handle digital document verification (including OTIT forms and CoE/visa processing), alumni monitoring in Japan (contract periods, visa expiry, incident reports), master data and finance (Kumiai/Kaisha/Partner management, B2B invoicing with VAT, receipts), and automatic generation of Japan-specific documents such as Rirekisho (standard Japanese CVs), Shoushiki forms, and graduation certificates — all generated directly from the database.",
     image_url: "/images/projects/ujc-erp.jpg",
     project_url: "https://prototype-ujc-web-ca4c.vercel.app",
     repo_url: null,
-    tech_stack: ["React.js", "Vite", "Supabase", "PostgreSQL"],
+    tech_stack: ["React", "Vite", "Supabase", "PostgreSQL", "Vercel", "Recharts"],
   },
   {
     id: 3,
