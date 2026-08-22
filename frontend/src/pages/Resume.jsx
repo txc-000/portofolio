@@ -20,7 +20,7 @@ export default function Resume({ profile, experiences }) {
             ⬇ Download CV
           </a>
         ) : (
-          <span className="resume-cv-missing">CV belum diunggah — tambahkan cv_url pada profil.</span>
+          <span className="resume-cv-missing">CV not uploaded yet — add cv_url to the profile.</span>
         )}
       </Reveal>
 

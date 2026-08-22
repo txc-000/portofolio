@@ -36,7 +36,7 @@ export default function Project({ portfolios }) {
   return (
     <section id="projects" className="page-section">
       <h1 className="section-title gradient-text">Projects</h1>
-      {groups.length === 0 && <EmptyState>Belum ada proyek ditambahkan.</EmptyState>}
+      {groups.length === 0 && <EmptyState>No projects added yet.</EmptyState>}
       {groups.map((group) => (
         <div key={group.key} className="project-group">
           <h2 className="section-subtitle">{group.label}</h2>
