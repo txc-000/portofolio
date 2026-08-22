@@ -1,67 +1,12 @@
-import { useEffect, useState } from "react";
 import BioText from "../components/BioText";
 import Reveal from "../components/Reveal";
-
-const TYPE_ORDER = ["internship", "professional", "project"];
-
-const LABELS = {
-  en: {
-    profile: "Profile",
-    technicalSkills: "Technical Skills",
-    skills: "Skills",
-    tools: "Tools",
-    education: "Education",
-    certifications: "Certifications",
-    types: {
-      internship: "Internship Experience",
-      professional: "Professional Experience",
-      project: "Project Experience",
-    },
-  },
-  id: {
-    profile: "Profil",
-    technicalSkills: "Keahlian Teknis",
-    skills: "Keahlian",
-    tools: "Tools",
-    education: "Pendidikan",
-    certifications: "Sertifikasi",
-    types: {
-      internship: "Pengalaman Magang",
-      professional: "Pengalaman Profesional",
-      project: "Pengalaman Proyek",
-    },
-  },
-};
-
-function groupByType(experiences) {
-  const groups = new Map();
-  for (const exp of experiences) {
-    const key = exp.type || "project";
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(exp);
-  }
-  return TYPE_ORDER.filter((type) => groups.has(type)).map((type) => ({
-    type,
-    items: groups.get(type),
-  }));
-}
+import { RESUME_LABELS, groupExperiencesByType } from "../utils/resumeI18n";
+import { generateCvPdf } from "../utils/generateCvPdf";
 
 export default function Resume({ profile, experiences }) {
-  const [lang, setLang] = useState("en");
-  const [printTick, setPrintTick] = useState(0);
-
-  useEffect(() => {
-    if (printTick === 0) return;
-    const previousTitle = document.title;
-    document.title = `CV - ${profile.name} (${lang.toUpperCase()})`;
-    window.print();
-    document.title = previousTitle;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [printTick]);
-
   if (!profile) return null;
 
-  const t = LABELS[lang];
+  const t = RESUME_LABELS.en;
 
   const contactItems = [
     profile.location,
@@ -70,18 +15,21 @@ export default function Resume({ profile, experiences }) {
     ...(profile.social_links ? Object.values(profile.social_links) : []),
   ].filter(Boolean);
 
-  const handleDownload = (targetLang) => {
-    setLang(targetLang);
-    setPrintTick((tick) => tick + 1);
-  };
-
   return (
     <section id="resume" className="page-section">
       <Reveal className="resume-toolbar">
-        <button type="button" className="btn btn-primary" onClick={() => handleDownload("en")}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => generateCvPdf({ profile, experiences, lang: "en" })}
+        >
           ⬇ Download CV (EN)
         </button>
-        <button type="button" className="btn btn-outline" onClick={() => handleDownload("id")}>
+        <button
+          type="button"
+          className="btn btn-outline"
+          onClick={() => generateCvPdf({ profile, experiences, lang: "id" })}
+        >
           ⬇ Download CV (ID)
         </button>
       </Reveal>
@@ -97,7 +45,7 @@ export default function Resume({ profile, experiences }) {
 
         <section className="resume-section">
           <h2>{t.profile}</h2>
-          <BioText text={lang === "id" ? profile.bio_id ?? profile.bio : profile.bio} />
+          <BioText text={profile.bio} />
         </section>
 
         {(profile.skills?.length > 0 || profile.tools?.length > 0) && (
@@ -113,7 +61,7 @@ export default function Resume({ profile, experiences }) {
         )}
 
         {experiences?.length > 0 &&
-          groupByType(experiences).map((group) => (
+          groupExperiencesByType(experiences).map((group) => (
             <section key={group.type} className="resume-section">
               <h2>{t.types[group.type] ?? group.type}</h2>
               {group.items.map((exp) => (
@@ -124,7 +72,7 @@ export default function Resume({ profile, experiences }) {
                     </h3>
                     <span className="resume-period">{exp.period}</span>
                   </div>
-                  <p>{lang === "id" ? exp.description_id ?? exp.description : exp.description}</p>
+                  <p>{exp.description}</p>
                   {exp.link && (
                     <a href={exp.link} target="_blank" rel="noreferrer">
                       {exp.link}
@@ -141,11 +89,11 @@ export default function Resume({ profile, experiences }) {
             {profile.education.map((edu, index) => (
               <div key={index} className="resume-entry">
                 <div className="resume-entry-header">
-                  <h3>{lang === "id" ? edu.degree_id ?? edu.degree : edu.degree}</h3>
+                  <h3>{edu.degree}</h3>
                   <span className="resume-period">{edu.period}</span>
                 </div>
                 <p>{edu.institution}</p>
-                {(lang === "id" ? edu.details_id ?? edu.details : edu.details)?.map((detail, i) => (
+                {edu.details?.map((detail, i) => (
                   <p key={i}>{detail}</p>
                 ))}
               </div>
@@ -159,12 +107,10 @@ export default function Resume({ profile, experiences }) {
             {profile.certifications.map((cert, index) => (
               <div key={index} className="resume-entry">
                 <div className="resume-entry-header">
-                  <h3>
-                    {lang === "id" ? cert.name_id ?? cert.name : cert.name} — {cert.issuer}
-                  </h3>
+                  <h3>{cert.name} — {cert.issuer}</h3>
                   <span className="resume-period">{cert.year}</span>
                 </div>
-                <p>{lang === "id" ? cert.description_id ?? cert.description : cert.description}</p>
+                <p>{cert.description}</p>
               </div>
             ))}
           </section>
