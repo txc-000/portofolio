@@ -2,12 +2,12 @@ export const profile = {
   name: "Faidzul Umam",
   title: "Fullstack Web Developer",
   bio: "Fullstack Developer who loves building modern web apps end-to-end — from interactive frontends to stable server infrastructure.\n\nBackground in Informatics Engineering from UDINUS, with hands-on experience using React.js and Laravel for more complex projects.\n\nAlso interested in network architecture and high-availability servers using Linux and Nginx.",
+  bio_id: "Fullstack Developer yang senang membangun aplikasi web modern secara end-to-end — mulai dari frontend yang interaktif hingga infrastruktur server yang stabil.\n\nBerlatar belakang Teknik Informatika dari UDINUS, dengan pengalaman langsung menggunakan React.js dan Laravel untuk proyek-proyek yang lebih kompleks.\n\nJuga tertarik pada arsitektur jaringan dan server high-availability menggunakan Linux dan Nginx.",
   about: "I grew up in Jepara, a small coastal town in Central Java best known for its wood carving craftsmanship — funny enough, I ended up building things with code instead of a chisel.\n\nI'm currently in my 7th semester of Informatics Engineering at Universitas Dian Nuswantoro (UDINUS) in Semarang, closing in on graduation. What started as curiosity about how websites actually work turned into shipping full production systems — POS platforms, ERP dashboards, inventory tools — well before I finished my degree.\n\nI care about the parts of development most people skip past: making sure a warehouse system actually reflects how stock really moves on the ground, or that a network stays reliable when it matters. That mix of practical problem-solving and technical depth is what keeps me building.",
   photo_url: "/images/profile.jpg",
   email: "umamfaidzul@gmail.com",
   location: "Semarang, Indonesia",
   phone: "0812-2878-2538",
-  cv_url: "/documents/CV_FaidzulUmam_2026.pdf",
   social_links: {
     github: "https://github.com/txc-000",
     linkedin: "https://www.linkedin.com/in/faidzul-umam",
@@ -22,6 +22,72 @@ export const profile = {
     "Git", "GitHub", "Docker", "Vercel", "Figma", "VS Code",
     "Cisco Packet Tracer", "Mikrotik",
   ],
+  education: [
+    {
+      degree: "S1 Informatics Engineering",
+      degree_id: "S1 Teknik Informatika",
+      institution: "Universitas Dian Nuswantoro (UDINUS)",
+      period: "Aug 2023 – Present",
+      details: [
+        "Currently in my 7th semester.",
+        "Focused on Software Development, Web Architecture, and Network Infrastructure.",
+      ],
+      details_id: [
+        "Saat ini menempuh semester 7.",
+        "Fokus pada Pengembangan Perangkat Lunak, Arsitektur Web, dan Infrastruktur Jaringan.",
+      ],
+    },
+  ],
+  certifications: [
+    {
+      name: "MikroTik Certified Network Associate",
+      name_id: "MikroTik Certified Network Associate",
+      issuer: "MikroTik",
+      year: "2026",
+      description: "Covers basic MikroTik RouterOS configuration, bandwidth management, routing, firewall, and network infrastructure implementation.",
+      description_id: "Mencakup: Konfigurasi dasar MikroTik RouterOS, manajemen bandwidth, perutean (routing), firewall, dan implementasi infrastruktur jaringan.",
+    },
+    {
+      name: "IT Systems & Infrastructure Administration Services",
+      name_id: "Layanan Administrasi Sistem dan Infrastruktur TI",
+      issuer: "Google",
+      year: "2025",
+      description: "Covers system administration, network topology design, and enterprise-level server infrastructure management.",
+      description_id: "Mencakup: Administrasi sistem, perancangan topologi jaringan (Network Topology), dan pengelolaan infrastruktur server tingkat enterprise.",
+    },
+    {
+      name: "Network Security",
+      name_id: "Keamanan Jaringan",
+      issuer: "Cisco",
+      year: "2025",
+      description: "Covers cybersecurity fundamentals, network infrastructure protection, Cisco device hardening, and threat mitigation.",
+      description_id: "Mencakup: Konsep dasar keamanan siber (Cybersecurity), perlindungan infrastruktur jaringan, pengamanan perangkat Cisco, dan mitigasi ancaman.",
+    },
+    {
+      name: "Exploratory Data Analysis for Machine Learning",
+      name_id: "Analisis Data Eksplorasi untuk Pembelajaran Mesin",
+      issuer: "IBM",
+      year: "2025",
+      description: "Covers data exploration, data mining, data preprocessing, and dataset preparation for machine learning model training.",
+      description_id: "Mencakup: Eksplorasi data, penggalian data (Data Mining), pembersihan data (preprocessing), dan persiapan dataset untuk pelatihan model machine learning.",
+    },
+    {
+      name: "Supervised Machine Learning: Regression",
+      name_id: "Pembelajaran Mesin Terawasi: Regresi",
+      issuer: "IBM",
+      year: "2025",
+      description: "Covers supervised learning algorithm implementation, regression modeling, evaluation metrics, and predictive data mining techniques.",
+      description_id: "Mencakup: Implementasi algoritma supervised learning, pemodelan regresi, evaluasi matriks, dan pemanfaatan teknik Data Mining prediktif.",
+    },
+    {
+      name: "National Seminar on Informatics Engineering",
+      name_id: "Seminar Nasional Teknik Informatika",
+      issuer: "HMTI UDINUS",
+      year: "2024",
+      description: "Covers current technology trends with a focus on cybersecurity implementation and awareness.",
+      description_id: "Mencakup: Pemahaman tren teknologi terkini dengan fokus pada implementasi dan kesadaran keamanan siber (Cybersecurity).",
+    },
+  ],
 };
 
 export const experiences = [
@@ -32,6 +98,7 @@ export const experiences = [
     type: "project",
     period: "Aug 2026 – Present",
     description: "Designed & built a web-based POS and warehouse management system for a shoe/sandal wholesale business, with 4 user roles (Owner, Sales, Cashier, Warehouse) and separate workflows per role | Designed and implemented a proportional stock-splitting algorithm for partial-box sales (half/third/quarter box) that guarantees every sales package still gets a fair, even spread of all sizes — replacing the conventional size-range splitting approach | Built an analytics dashboard (sales trends, monthly contribution, per-category summaries) with interactive data visualization | Implemented a 2-level product category structure (segment × type) and a dynamic pricing system per market/customer | Full-stack: REST API (Laravel) + SPA (React), with role-based and session-based authentication (Sanctum).",
+    description_id: "Merancang & membangun sistem POS dan manajemen gudang berbasis web untuk bisnis grosir sepatu/sandal, dengan 4 peran pengguna (Owner, Sales, Kasir, Gudang) dan alur kerja terpisah untuk masing-masing peran | Merancang dan mengimplementasikan algoritma pembagian stok proporsional untuk penjualan per-dus tidak penuh (setengah/sepertiga/seperempat dus) yang menjamin setiap paket penjualan tetap mendapat sebaran ukuran yang adil dan merata — menggantikan pendekatan pembagian berdasarkan rentang ukuran konvensional | Membangun dashboard analitik (tren penjualan, kontribusi bulanan, ringkasan per kategori) dengan visualisasi data interaktif | Mengimplementasikan struktur kategori produk 2 level (segmen × jenis) dan sistem harga dinamis per pasar/pelanggan | Full-stack: REST API (Laravel) + SPA (React), dengan autentikasi berbasis role dan session (Sanctum).",
     link: null,
   },
   {
@@ -41,6 +108,7 @@ export const experiences = [
     type: "internship",
     period: "Jul 2026 – Oct 2026",
     description: "Developed and maintained a Laravel Blade-based user interface for the company's sustainability/ESG web platform | Migrated frontend components from static (hardcoded) data to dynamic data connected to the database, covering both listing and detail pages | Implemented empty states, safe image handling, and conditional rendering based on data availability from the backend | Wrote automated tests to ensure the frontend matched the data contract provided by the backend team | Collaborated with the backend team through a feature-branch Git workflow and code review to keep data integration consistent.",
+    description_id: "Mengembangkan dan memelihara antarmuka pengguna berbasis Laravel Blade untuk platform web sustainability/ESG perusahaan | Memigrasikan komponen frontend dari data statis (hardcoded) menjadi data dinamis yang terhubung ke database, mencakup halaman listing maupun detail | Mengimplementasikan empty state, penanganan gambar yang aman, dan rendering kondisional berdasarkan ketersediaan data dari backend | Menulis automated test untuk memastikan frontend sesuai dengan kontrak data yang diberikan tim backend | Berkolaborasi dengan tim backend melalui alur kerja Git feature-branch dan code review untuk menjaga konsistensi integrasi data.",
     link: null,
   },
   {
@@ -50,6 +118,7 @@ export const experiences = [
     type: "internship",
     period: "Mar 2026 – Jul 2026",
     description: "Built an integrated management system automating the full trainee lifecycle — from registration to post-departure alumni monitoring — for a Japan-bound worker training institute | Developed a multi-role dashboard system (9 roles, including a B2B partner portal) with role-based smart login and a Director dashboard for real-time KPI and staff-productivity monitoring | Built an 11-stage trainee pipeline/timeline module with layered validation, plus document generators for Japan-specific paperwork (Rirekisho, Shoushiki forms, certificates) auto-generated from the database | Implemented secure serverless admin endpoints (user creation, password resets) via Vercel Functions using a server-side service-role key, keeping privileged operations off the client | Designed the backend with Supabase (Auth, PostgreSQL, Storage) using UUID primary keys to prevent IDOR vulnerabilities.",
+    description_id: "Membangun sistem manajemen terintegrasi yang mengotomatisasi seluruh siklus hidup peserta pelatihan — mulai dari pendaftaran hingga monitoring alumni pasca-keberangkatan — untuk lembaga pelatihan tenaga kerja tujuan Jepang | Mengembangkan sistem dashboard multi-peran (9 peran, termasuk portal partner B2B) dengan smart login berbasis peran dan dashboard Direktur untuk monitoring KPI dan produktivitas staf secara real-time | Membangun modul pipeline/timeline peserta 11 tahap dengan validasi berlapis, ditambah generator dokumen untuk berkas khusus Jepang (Rirekisho, formulir Shoushiki, sertifikat) yang dibuat otomatis dari database | Mengimplementasikan endpoint admin serverless yang aman (pembuatan user, reset password) melalui Vercel Functions menggunakan service-role key sisi server, menjaga operasi sensitif tetap di luar client | Merancang backend menggunakan Supabase (Auth, PostgreSQL, Storage) dengan primary key UUID untuk mencegah kerentanan IDOR.",
     link: null,
   },
   {
@@ -59,6 +128,7 @@ export const experiences = [
     type: "project",
     period: "Feb 2026",
     description: "Web app for searching and booking event tickets online | Secure user authentication with Supabase | Modern UI with category filters and real-time transactions.",
+    description_id: "Aplikasi web untuk mencari dan memesan tiket acara secara online | Autentikasi pengguna yang aman dengan Supabase | UI modern dengan filter kategori dan transaksi real-time.",
     link: null,
   },
   {
@@ -68,6 +138,7 @@ export const experiences = [
     type: "project",
     period: "Jan 2026",
     description: "Custom inventory management app for a shoe wholesale business, helping track the supply chain more efficiently | User authentication and real-time data with React and Supabase | Deployed to production with CI/CD on Vercel.",
+    description_id: "Aplikasi manajemen inventaris kustom untuk bisnis grosir sepatu, membantu memantau rantai pasok secara lebih efisien | Autentikasi pengguna dan data real-time dengan React dan Supabase | Deployed ke production dengan CI/CD di Vercel.",
     link: null,
   },
 ];
