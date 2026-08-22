@@ -13,7 +13,7 @@ export default function About({ profile, experiences }) {
       </h1>
 
       <Reveal className="about-intro glass-panel">
-        <BioText text={profile.bio} />
+        <BioText text={profile.about ?? profile.bio} />
         {profile.location && (
           <p className="about-location">
             📍 Based in <strong>{profile.location}</strong>

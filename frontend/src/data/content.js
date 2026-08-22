@@ -2,6 +2,7 @@ export const profile = {
   name: "Faidzul Umam",
   title: "Fullstack Web Developer",
   bio: "Fullstack Developer yang suka membangun aplikasi web modern dari ujung ke ujung — dari frontend yang interaktif sampai infrastruktur server yang stabil.\n\nBerlatar belakang Teknik Informatika dari UDINUS, dengan pengalaman langsung memakai React.js dan Laravel untuk proyek-proyek yang lebih kompleks.\n\nTertarik juga pada arsitektur jaringan dan server high-availability memakai Linux dan Nginx.",
+  about: "I grew up in Jepara, a small coastal town in Central Java best known for its wood carving craftsmanship — funny enough, I ended up building things with code instead of a chisel.\n\nI'm currently in my 7th semester of Informatics Engineering at Universitas Dian Nuswantoro (UDINUS) in Semarang, closing in on graduation. What started as curiosity about how websites actually work turned into shipping full production systems — POS platforms, ERP dashboards, inventory tools — well before I finished my degree.\n\nI care about the parts of development most people skip past: making sure a warehouse system actually reflects how stock really moves on the ground, or that a network stays reliable when it matters. That mix of practical problem-solving and technical depth is what keeps me building.",
   photo_url: "/images/profile.jpg",
   email: "umamfaidzul@gmail.com",
   location: "Semarang, Indonesia",
