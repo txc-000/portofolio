@@ -92,6 +92,16 @@ export const profile = {
 
 export const experiences = [
   {
+    id: 6,
+    role: "Fullstack Developer Intern",
+    organization: "PT Antares Sintesa Digital",
+    type: "internship",
+    period: "Sep 2026 – Feb 2027",
+    description: "Ongoing 6-month internship, started September 2026. Project details will be added once the work can be shared publicly.",
+    description_id: "Magang 6 bulan yang sedang berlangsung, dimulai September 2026. Detail proyek akan ditambahkan setelah pekerjaannya bisa dipublikasikan.",
+    link: null,
+  },
+  {
     id: 1,
     role: "Fullstack Developer",
     organization: "MHB Bakul (Thesis Project)",
