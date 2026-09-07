@@ -72,7 +72,7 @@ export default function Resume({ profile, experiences }) {
                     </h3>
                     <span className="resume-period">{exp.period}</span>
                   </div>
-                  <p>{exp.description}</p>
+                  <p>{exp.cv_description ?? exp.description}</p>
                   {exp.link && (
                     <a href={exp.link} target="_blank" rel="noreferrer">
                       {exp.link}

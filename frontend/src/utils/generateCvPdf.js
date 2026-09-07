@@ -125,7 +125,7 @@ export function generateCvPdf({ profile, experiences, lang }) {
       w.sectionTitle(t.types[group.type] ?? group.type);
       for (const exp of group.items) {
         w.entryHeader(`${exp.role} — ${exp.organization}`, exp.period);
-        w.paragraph(lang === "id" ? exp.description_id ?? exp.description : exp.description);
+        w.paragraph(lang === "id" ? exp.cv_description_id ?? exp.description_id ?? exp.description : exp.cv_description ?? exp.description);
         if (exp.link) w.link(exp.link);
       }
     }

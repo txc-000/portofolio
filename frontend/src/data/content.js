@@ -99,6 +99,8 @@ export const experiences = [
     period: "Aug 2026 – Present",
     description: "Designed & built a web-based POS and warehouse management system for a shoe/sandal wholesale business, with 4 user roles (Owner, Sales, Cashier, Warehouse) and separate workflows per role | Designed and implemented a proportional stock-splitting algorithm for partial-box sales (half/third/quarter box) that guarantees every sales package still gets a fair, even spread of all sizes — replacing the conventional size-range splitting approach | Built an analytics dashboard (sales trends, monthly contribution, per-category summaries) with interactive data visualization | Implemented a 2-level product category structure (segment × type) and a dynamic pricing system per market/customer | Full-stack: REST API (Laravel) + SPA (React), with role-based and session-based authentication (Sanctum).",
     description_id: "Merancang & membangun sistem POS dan manajemen gudang berbasis web untuk bisnis grosir sepatu/sandal, dengan 4 peran pengguna (Owner, Sales, Kasir, Gudang) dan alur kerja terpisah untuk masing-masing peran | Merancang dan mengimplementasikan algoritma pembagian stok proporsional untuk penjualan per-dus tidak penuh (setengah/sepertiga/seperempat dus) yang menjamin setiap paket penjualan tetap mendapat sebaran ukuran yang adil dan merata — menggantikan pendekatan pembagian berdasarkan rentang ukuran konvensional | Membangun dashboard analitik (tren penjualan, kontribusi bulanan, ringkasan per kategori) dengan visualisasi data interaktif | Mengimplementasikan struktur kategori produk 2 level (segmen × jenis) dan sistem harga dinamis per pasar/pelanggan | Full-stack: REST API (Laravel) + SPA (React), dengan autentikasi berbasis role dan session (Sanctum).",
+    cv_description: "Web-based POS (Point of Sale) and warehouse management system, built with Laravel (REST API) and React (SPA).",
+    cv_description_id: "Sistem POS (Point of Sale) dan manajemen gudang berbasis web, dibangun dengan Laravel (REST API) dan React (SPA).",
     link: null,
   },
   {
@@ -109,6 +111,8 @@ export const experiences = [
     period: "Jul 2026 – Oct 2026",
     description: "Developed and maintained a Laravel Blade-based user interface for the company's sustainability/ESG web platform | Migrated frontend components from static (hardcoded) data to dynamic data connected to the database, covering both listing and detail pages | Implemented empty states, safe image handling, and conditional rendering based on data availability from the backend | Wrote automated tests to ensure the frontend matched the data contract provided by the backend team | Collaborated with the backend team through a feature-branch Git workflow and code review to keep data integration consistent.",
     description_id: "Mengembangkan dan memelihara antarmuka pengguna berbasis Laravel Blade untuk platform web sustainability/ESG perusahaan | Memigrasikan komponen frontend dari data statis (hardcoded) menjadi data dinamis yang terhubung ke database, mencakup halaman listing maupun detail | Mengimplementasikan empty state, penanganan gambar yang aman, dan rendering kondisional berdasarkan ketersediaan data dari backend | Menulis automated test untuk memastikan frontend sesuai dengan kontrak data yang diberikan tim backend | Berkolaborasi dengan tim backend melalui alur kerja Git feature-branch dan code review untuk menjaga konsistensi integrasi data.",
+    cv_description: "Frontend development (Laravel Blade) for the company's sustainability/ESG web platform.",
+    cv_description_id: "Pengembangan frontend (Laravel Blade) untuk platform web sustainability/ESG perusahaan.",
     link: null,
   },
   {
@@ -119,6 +123,8 @@ export const experiences = [
     period: "Mar 2026 – Jul 2026",
     description: "Built an integrated management system automating the full trainee lifecycle — from registration to post-departure alumni monitoring — for a Japan-bound worker training institute | Developed a multi-role dashboard system (9 roles, including a B2B partner portal) with role-based smart login and a Director dashboard for real-time KPI and staff-productivity monitoring | Built an 11-stage trainee pipeline/timeline module with layered validation, plus document generators for Japan-specific paperwork (Rirekisho, Shoushiki forms, certificates) auto-generated from the database | Implemented secure serverless admin endpoints (user creation, password resets) via Vercel Functions using a server-side service-role key, keeping privileged operations off the client | Designed the backend with Supabase (Auth, PostgreSQL, Storage) using UUID primary keys to prevent IDOR vulnerabilities.",
     description_id: "Membangun sistem manajemen terintegrasi yang mengotomatisasi seluruh siklus hidup peserta pelatihan — mulai dari pendaftaran hingga monitoring alumni pasca-keberangkatan — untuk lembaga pelatihan tenaga kerja tujuan Jepang | Mengembangkan sistem dashboard multi-peran (9 peran, termasuk portal partner B2B) dengan smart login berbasis peran dan dashboard Direktur untuk monitoring KPI dan produktivitas staf secara real-time | Membangun modul pipeline/timeline peserta 11 tahap dengan validasi berlapis, ditambah generator dokumen untuk berkas khusus Jepang (Rirekisho, formulir Shoushiki, sertifikat) yang dibuat otomatis dari database | Mengimplementasikan endpoint admin serverless yang aman (pembuatan user, reset password) melalui Vercel Functions menggunakan service-role key sisi server, menjaga operasi sensitif tetap di luar client | Merancang backend menggunakan Supabase (Auth, PostgreSQL, Storage) dengan primary key UUID untuk mencegah kerentanan IDOR.",
+    cv_description: "Company ERP web application — an integrated management system built with React and Supabase.",
+    cv_description_id: "Aplikasi web ERP perusahaan — sistem manajemen terintegrasi yang dibangun dengan React dan Supabase.",
     link: null,
   },
   {
@@ -129,6 +135,8 @@ export const experiences = [
     period: "Feb 2026",
     description: "Web app for searching and booking event tickets online | Secure user authentication with Supabase | Modern UI with category filters and real-time transactions.",
     description_id: "Aplikasi web untuk mencari dan memesan tiket acara secara online | Autentikasi pengguna yang aman dengan Supabase | UI modern dengan filter kategori dan transaksi real-time.",
+    cv_description: "Event ticket booking web app, built with React and Supabase.",
+    cv_description_id: "Aplikasi web pemesanan tiket acara, dibangun dengan React dan Supabase.",
     link: null,
   },
   {
@@ -139,6 +147,8 @@ export const experiences = [
     period: "Jan 2026",
     description: "Custom inventory management app for a shoe wholesale business, helping track the supply chain more efficiently | User authentication and real-time data with React and Supabase | Deployed to production with CI/CD on Vercel.",
     description_id: "Aplikasi manajemen inventaris kustom untuk bisnis grosir sepatu, membantu memantau rantai pasok secara lebih efisien | Autentikasi pengguna dan data real-time dengan React dan Supabase | Deployed ke production dengan CI/CD di Vercel.",
+    cv_description: "Inventory management web app, built with React and Supabase.",
+    cv_description_id: "Aplikasi web manajemen inventaris, dibangun dengan React dan Supabase.",
     link: null,
   },
 ];
